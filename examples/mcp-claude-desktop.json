@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "librascript": {
+      "command": "npx",
+      "args": ["-y", "librascript-mcp"]
+    }
+  }
+}

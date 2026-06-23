@@ -1,0 +1,53 @@
+{
+  "name": "librascript-mcp",
+  "version": "0.3.0",
+  "description": "MCP amigável para produzir conteúdo em LIBRAS com as APIs oficiais do VLibras (Governo Digital). Funciona com Cursor, Grok, Claude e qualquer cliente MCP.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Fabricio Artur",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fabricioartur/librascript-mcp.git"
+  },
+  "homepage": "https://github.com/fabricioartur/librascript-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/fabricioartur/librascript-mcp/issues"
+  },
+  "keywords": [
+    "mcp",
+    "libras",
+    "vlibras",
+    "acessibilidade",
+    "surdez",
+    "lingua-de-sinais",
+    "brasil",
+    "governo-digital"
+  ],
+  "bin": {
+    "librascript-mcp": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "examples",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "doctor": "node dist/index.js --doctor",
+    "demo": "node dist/index.js --demo \"Bem-vindo ao nosso curso de programação\"",
+    "prepublishOnly": "npm run build"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "typescript": "^5.8.2"
+  }
+}

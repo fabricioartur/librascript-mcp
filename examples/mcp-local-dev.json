@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "librascript": {
+      "command": "node",
+      "args": ["SUBSTITUA_PELO_CAMINHO_ABSOLUTO/librascript-mcp/dist/index.js"]
+    }
+  }
+}
