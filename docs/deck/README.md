@@ -11,7 +11,10 @@ Deck de **5 slides** explicando o projeto de forma visual: problema, arquitetura
 
 ## Editar no Canva
 
-Versão editável: [Abrir no Canva](https://www.canva.com/d/G3JXjOu8qwcWOmv)
+| Versão | Link |
+|--------|------|
+| Slide 1 (banner do README) | [Abrir no Canva](https://www.canva.com/d/3oINlkfAXE3eMwF) |
+| Deck completo (5 slides) | [Abrir no Canva](https://www.canva.com/d/G3JXjOu8qwcWOmv) |
 
 ## Conteúdo dos slides
 
