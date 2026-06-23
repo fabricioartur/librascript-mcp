@@ -4,129 +4,49 @@
   <img src="docs/images/slide-01-titulo.png" alt="LIBRAScript MCP — Conectando IAs ao VLibras oficial" width="720">
 </p>
 
+<p align="center">
+  <a href="https://github.com/fabricioartur/librascript-mcp"><img src="https://img.shields.io/badge/repo-GitHub-181717?logo=github" alt="GitHub"></a>
+  <a href="https://github.com/fabricioartur/librascript-mcp/releases/tag/v0.3.0"><img src="https://img.shields.io/badge/version-0.3.0-blue" alt="version 0.3.0"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green" alt="MIT License"></a>
+  <img src="https://img.shields.io/badge/node-%3E%3D18-339933?logo=node.js&logoColor=white" alt="Node 18+">
+  <img src="https://img.shields.io/badge/custo-R%24%200-brightgreen" alt="R$ 0">
+</p>
+
 Torne qualquer IA capaz de **produzir conteúdo em LIBRAS** usando as APIs oficiais do [VLibras](https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/vlibras) (Governo Digital).
 
 Funciona com **Cursor, Grok, Claude Desktop, Claude Code** e qualquer ferramenta que suporte o [protocolo MCP](https://modelcontextprotocol.io).
 
 ---
 
-## Como funciona
-
-```mermaid
-flowchart LR
-    A["🤖 IA com cliente MCP<br/>Cursor · Grok · Claude"]
-    B["⚙️ LIBRAScript MCP<br/>9 ferramentas + 3 prompts"]
-    C["🇧🇷 APIs VLibras<br/>Governo Digital · R$ 0"]
-    D["📝 Glossa + Validação<br/>+ Roteiro"]
-
-    A -->|"Traduza para LIBRAS"| B
-    B -->|"translate + bundles"| C
-    C --> D
-    D --> A
-```
-
-<p align="center">
-  <img src="docs/images/slide-03-arquitetura.png" alt="Diagrama: IA → MCP → VLibras → Glossa" width="720">
-</p>
-
-| Etapa | O que acontece |
-|-------|----------------|
-| 1 | Você pede à IA em português natural |
-| 2 | A IA chama o LIBRAScript MCP |
-| 3 | O MCP consulta `traducao2.vlibras.gov.br` e `dicionario2.vlibras.gov.br` |
-| 4 | Retorna glossa validada e roteiro com tempos estimados |
-
----
-
-## O problema que resolve
-
-<p align="center">
-  <img src="docs/images/slide-02-problema.png" alt="Mais de 2 milhões de brasileiros usam LIBRAS — conteúdo digital é produzido quase só em português escrito" width="720">
-</p>
-
-O VLibras traduz páginas para quem **consome** conteúdo (widget Ícaro). O LIBRAScript preenche a lacuna de quem **cria** conteúdo com IA — desenvolvedores, educadores, ONGs e criadores digitais.
-
----
-
-## Ferramentas em ação
-
-```mermaid
-flowchart TD
-    T["Texto em português"]
-    T --> A["audit_content<br/>Melhora o texto"]
-    A --> G["text_to_gloss<br/>Traduz para glossa"]
-    G --> V["validate_gloss<br/>Confere no dicionário"]
-    V --> S["gloss_to_script<br/>Gera roteiro"]
-    T -.->|"atalho"| TV["translate_and_validate<br/>Faz tudo de uma vez"]
-    TV --> S
-```
-
-<p align="center">
-  <img src="docs/images/slide-04-ferramentas.png" alt="9 ferramentas MCP e demo em 30 segundos" width="720">
-</p>
-
-**Exemplo real:**
-
-| | |
-|---|---|
-| Entrada | `Bem-vindo ao nosso curso de programação` |
-| Glossa | `BEM_VINDO NOSSO CURSO&ESTUDAR PROGRAMAÇÃO` |
-| Validação | 100% dos sinais no dicionário oficial |
-
----
-
-## Apresentação visual completa
-
-Deck de 5 slides para compartilhar ou apresentar:
-
-<p align="center">
-  <img src="docs/images/slide-05-impacto.png" alt="Impacto, links e aviso sobre intérprete humano" width="720">
-</p>
-
-| Formato | Link |
-|---------|------|
-| PDF | [librascript-mcp-deck.pdf](docs/deck/librascript-mcp-deck.pdf) |
-| PowerPoint | [librascript-mcp-deck.pptx](docs/deck/librascript-mcp-deck.pptx) |
-| Editar no Canva | [Abrir no Canva](https://www.canva.com/d/G3JXjOu8qwcWOmv) |
-| Todas as imagens | [docs/images/](docs/images/) |
-
----
-
 ## Comece em 3 minutos
 
-### 1. Teste sem configurar nada
+### Opção A — clone do repositório (funciona hoje)
 
 ```bash
 git clone https://github.com/fabricioartur/librascript-mcp.git
 cd librascript-mcp
 npm install
 npm run build
+npm run doctor
 npm run demo
 ```
 
-Ou, com texto personalizado:
+Texto personalizado na demo:
 
 ```bash
 node dist/index.js --demo "Bem-vindo ao nosso curso de programação"
 ```
 
-### 2. Verifique se está tudo funcionando
+Configuração MCP local (edite o caminho absoluto): [`examples/mcp-local-dev.json`](examples/mcp-local-dev.json)
+
+### Opção B — `npx` (após publicar no npm)
 
 ```bash
-npm run doctor
+npx -y librascript-mcp --doctor
+npx -y librascript-mcp --demo "Bem-vindo ao nosso curso de programação"
 ```
 
-### 3. Conecte na sua IA
-
-Copie um arquivo de `examples/` para a config MCP do seu editor:
-
-| Ferramenta | Arquivo de config |
-|------------|-------------------|
-| **Claude Desktop** | `~/.config/claude/claude_desktop_config.json` |
-| **Cursor** | Configurações → MCP |
-| **Grok Build** | Config MCP do projeto |
-
-Exemplo (funciona na maioria dos clientes):
+Configuração MCP:
 
 ```json
 {
@@ -139,7 +59,17 @@ Exemplo (funciona na maioria dos clientes):
 }
 ```
 
-Reinicie o editor e pronto.
+Exemplos prontos: [`examples/mcp-cursor.json`](examples/mcp-cursor.json), [`examples/mcp-claude-desktop.json`](examples/mcp-claude-desktop.json)
+
+### Onde colocar a config
+
+| Ferramenta | Arquivo / local |
+|------------|-----------------|
+| **Cursor** | Configurações → MCP |
+| **Grok Build** | Config MCP do projeto |
+| **Claude Desktop** | `~/.config/claude/claude_desktop_config.json` (macOS/Linux) |
+
+Reinicie o editor após salvar a config.
 
 ---
 
@@ -162,7 +92,70 @@ Você não precisa saber os nomes das ferramentas. Basta escrever em português:
 
 ---
 
-## Referência das ferramentas
+## Como funciona
+
+```mermaid
+flowchart LR
+    A["IA com cliente MCP"]
+    B["LIBRAScript MCP"]
+    C["APIs VLibras"]
+    D["Glossa + Validacao + Roteiro"]
+
+    A -->|"Traduza para LIBRAS"| B
+    B -->|"translate + bundles"| C
+    C --> D
+    D --> A
+```
+
+<p align="center">
+  <img src="docs/images/slide-03-arquitetura.png" alt="Diagrama: IA → MCP → VLibras → Glossa" width="720">
+</p>
+
+| Etapa | O que acontece |
+|-------|----------------|
+| 1 | Você pede à IA em português natural |
+| 2 | A IA chama o LIBRAScript MCP |
+| 3 | O MCP consulta as APIs do VLibras |
+| 4 | Retorna glossa validada e roteiro com tempos estimados |
+
+**Exemplo real:**
+
+| | |
+|---|---|
+| Entrada | `Bem-vindo ao nosso curso de programação` |
+| Glossa | `BEM_VINDO NOSSO CURSO&ESTUDAR PROGRAMAÇÃO` |
+| Validação | 100% dos sinais no dicionário oficial |
+
+---
+
+## O problema que resolve
+
+<p align="center">
+  <img src="docs/images/slide-02-problema.png" alt="Mais de 2 milhões de brasileiros usam LIBRAS" width="720">
+</p>
+
+O VLibras traduz páginas para quem **consome** conteúdo (widget Ícaro). O LIBRAScript preenche a lacuna de quem **cria** conteúdo com IA — desenvolvedores, educadores, ONGs e criadores digitais.
+
+---
+
+## Ferramentas em ação
+
+```mermaid
+flowchart TD
+    T["Texto em portugues"]
+    T --> A["audit_content"]
+    A --> G["text_to_gloss"]
+    G --> V["validate_gloss"]
+    V --> S["gloss_to_script"]
+    T -.->|"atalho"| TV["translate_and_validate"]
+    TV --> S
+```
+
+<p align="center">
+  <img src="docs/images/slide-04-ferramentas.png" alt="9 ferramentas MCP" width="720">
+</p>
+
+### Referência das ferramentas
 
 | Ferramenta | Para que serve |
 |------------|----------------|
@@ -178,9 +171,25 @@ Você não precisa saber os nomes das ferramentas. Basta escrever em português:
 
 ---
 
-## Quem pode usar
+## Apresentação visual
 
-Qualquer IA com **cliente MCP** — não fica preso a um modelo específico.
+Deck de 5 slides + banner do README:
+
+<p align="center">
+  <img src="docs/images/slide-05-impacto.png" alt="Impacto e links do projeto" width="720">
+</p>
+
+| Formato | Link |
+|---------|------|
+| PDF | [librascript-mcp-deck.pdf](docs/deck/librascript-mcp-deck.pdf) |
+| PowerPoint | [librascript-mcp-deck.pptx](docs/deck/librascript-mcp-deck.pptx) |
+| Banner (Canva) | [Editar slide 1](https://www.canva.com/d/3oINlkfAXE3eMwF) |
+| Deck completo (Canva) | [Editar 5 slides](https://www.canva.com/d/G3JXjOu8qwcWOmv) |
+| Todas as imagens | [docs/images/](docs/images/) |
+
+---
+
+## Quem pode usar
 
 | Funciona | Não funciona diretamente |
 |----------|--------------------------|
@@ -209,6 +218,7 @@ Qualquer IA com **cliente MCP** — não fica preso a um modelo específico.
 |----------|---------|
 | MCP não aparece | Reinicie o editor após salvar a config |
 | `command not found: node` | Instale Node 18+ em [nodejs.org](https://nodejs.org) |
+| `npx` retorna 404 | Pacote ainda não publicado — use Opção B (clone) |
 | Erro de tradução | Rode `npm run doctor` — API do governo pode estar fora |
 | Glossa com score baixo | Simplifique frases; use `audit_content` primeiro |
 | Palavra soletrada | Normal se não há sinal no dicionário — use `lookup_sign` |
@@ -222,41 +232,34 @@ npm install
 npm run build
 npm run doctor
 npm run demo
-npm start          # inicia servidor MCP
+npm start
 ```
 
 Estrutura do projeto:
 
 ```
 src/
-  index.ts         # servidor MCP + prompts
+  index.ts          # servidor MCP + prompts
   vlibras-client.ts # APIs do governo
-  audit.ts         # auditoria de texto
-  script.ts        # roteiros
-  doctor.ts        # verificação de saúde
+  cli.ts            # --demo, --doctor, --help
+  audit.ts          # auditoria de texto
+  validation.ts     # validação de glossa
+  script.ts         # roteiros
+  gloss.ts          # parsing de glossa
+  format.ts         # formatação de respostas
+  doctor.ts         # verificação de saúde
+  constants.ts      # URLs e avisos
 ```
 
 APIs utilizadas (gratuitas):
 
 - `https://traducao2.vlibras.gov.br/translate`
 - `https://dicionario2.vlibras.gov.br/bundles`
+- `https://traducao2.vlibras.gov.br/review` (feedback via `submit_review`)
 
 Código oficial VLibras: [github.com/spbgovbr-vlibras](https://github.com/spbgovbr-vlibras)
 
 ---
-
-## Publicar no npm (mantenedores)
-
-```bash
-npm login
-npm publish --access public
-```
-
-Depois, qualquer pessoa instala com:
-
-```bash
-npx -y librascript-mcp --doctor
-```
 
 ## Licença
 
