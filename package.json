@@ -1,7 +1,7 @@
 {
   "name": "librascript-mcp",
   "version": "0.3.0",
-  "description": "MCP amigável para produzir conteúdo em LIBRAS com as APIs oficiais do VLibras (Governo Digital). Funciona com Cursor, Grok, Claude e qualquer cliente MCP.",
+  "description": "MCP amigável para produzir conteúdo em LIBRAS com as APIs oficiais do VLibras (Governo Digital). Funciona com Cursor, Grok, Claude, OpenAI Codex, Google Antigravity e qualquer cliente MCP.",
   "type": "module",
   "license": "MIT",
   "author": "Fabricio Artur",

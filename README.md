@@ -10,7 +10,7 @@
 
 Torne qualquer IA capaz de **produzir conteúdo em LIBRAS** usando as APIs oficiais do [VLibras](https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/vlibras) (Governo Digital).
 
-Funciona com **Cursor, Grok, Claude Desktop, Claude Code** e qualquer ferramenta que suporte o [protocolo MCP](https://modelcontextprotocol.io).
+Funciona com **Cursor, Grok, Claude Desktop, Claude Code, OpenAI Codex, Google Antigravity** e qualquer ferramenta que suporte o [protocolo MCP](https://modelcontextprotocol.io).
 
 ---
 
@@ -64,6 +64,8 @@ Exemplos prontos: [`examples/mcp-cursor.json`](examples/mcp-cursor.json), [`exam
 | **Cursor** | Configurações → MCP |
 | **Grok Build** | Config MCP do projeto |
 | **Claude Desktop** | `~/.config/claude/claude_desktop_config.json` (macOS/Linux) |
+| **OpenAI Codex** | `~/.codex/config.toml` ou `codex mcp add` |
+| **Google Antigravity** | MCP settings — [documentação](https://antigravity.google/docs/mcp) |
 
 Reinicie o editor após salvar a config.
 
@@ -161,8 +163,8 @@ flowchart TD
 
 | Funciona | Não funciona diretamente |
 |----------|--------------------------|
-| Cursor, Grok, Claude Desktop | ChatGPT no navegador (sem MCP) |
-| Claude Code, VS Code + MCP | Apps sem suporte ao protocolo |
+| Cursor, Grok Build, Claude Desktop, Claude Code | ChatGPT no navegador (sem MCP) |
+| OpenAI Codex, Google Antigravity, VS Code + MCP | Apps sem suporte ao protocolo |
 
 **Requisitos:** Node.js 18+, internet (APIs do governo).
 
