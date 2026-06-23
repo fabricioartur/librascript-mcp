@@ -1,10 +1,6 @@
 # LIBRAScript MCP
 
 <p align="center">
-  <img src="docs/images/slide-01-titulo.png" alt="LIBRAScript MCP — Conectando IAs ao VLibras oficial" width="720">
-</p>
-
-<p align="center">
   <a href="https://github.com/fabricioartur/librascript-mcp"><img src="https://img.shields.io/badge/repo-GitHub-181717?logo=github" alt="GitHub"></a>
   <a href="https://github.com/fabricioartur/librascript-mcp/releases/tag/v0.3.0"><img src="https://img.shields.io/badge/version-0.3.0-blue" alt="version 0.3.0"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green" alt="MIT License"></a>
@@ -107,10 +103,6 @@ flowchart LR
     D --> A
 ```
 
-<p align="center">
-  <img src="docs/images/slide-03-arquitetura.png" alt="Diagrama: IA → MCP → VLibras → Glossa" width="720">
-</p>
-
 | Etapa | O que acontece |
 |-------|----------------|
 | 1 | Você pede à IA em português natural |
@@ -130,9 +122,7 @@ flowchart LR
 
 ## O problema que resolve
 
-<p align="center">
-  <img src="docs/images/slide-02-problema.png" alt="Mais de 2 milhões de brasileiros usam LIBRAS" width="720">
-</p>
+No Brasil, mais de **2 milhões de pessoas** usam LIBRAS como língua principal, mas a maior parte do conteúdo digital é produzida apenas em português escrito.
 
 O VLibras traduz páginas para quem **consome** conteúdo (widget Ícaro). O LIBRAScript preenche a lacuna de quem **cria** conteúdo com IA — desenvolvedores, educadores, ONGs e criadores digitais.
 
@@ -151,10 +141,6 @@ flowchart TD
     TV --> S
 ```
 
-<p align="center">
-  <img src="docs/images/slide-04-ferramentas.png" alt="9 ferramentas MCP" width="720">
-</p>
-
 ### Referência das ferramentas
 
 | Ferramenta | Para que serve |
@@ -168,24 +154,6 @@ flowchart TD
 | `lookup_sign` | Buscar sinal no dicionário |
 | `submit_review` | Enviar feedback ao VLibras |
 | `dictionary_stats` | Quantos sinais existem no dicionário |
-
----
-
-## Apresentação visual
-
-Deck de 5 slides + banner do README:
-
-<p align="center">
-  <img src="docs/images/slide-05-impacto.png" alt="Impacto e links do projeto" width="720">
-</p>
-
-| Formato | Link |
-|---------|------|
-| PDF | [librascript-mcp-deck.pdf](docs/deck/librascript-mcp-deck.pdf) |
-| PowerPoint | [librascript-mcp-deck.pptx](docs/deck/librascript-mcp-deck.pptx) |
-| Banner (Canva) | [Editar slide 1](https://www.canva.com/d/3oINlkfAXE3eMwF) |
-| Deck completo (Canva) | [Editar 5 slides](https://www.canva.com/d/G3JXjOu8qwcWOmv) |
-| Todas as imagens | [docs/images/](docs/images/) |
 
 ---
 
@@ -218,7 +186,7 @@ Deck de 5 slides + banner do README:
 |----------|---------|
 | MCP não aparece | Reinicie o editor após salvar a config |
 | `command not found: node` | Instale Node 18+ em [nodejs.org](https://nodejs.org) |
-| `npx` retorna 404 | Pacote ainda não publicado — use Opção B (clone) |
+| `npx` retorna 404 | Pacote ainda não publicado — use Opção A (clone) |
 | Erro de tradução | Rode `npm run doctor` — API do governo pode estar fora |
 | Glossa com score baixo | Simplifique frases; use `audit_content` primeiro |
 | Palavra soletrada | Normal se não há sinal no dicionário — use `lookup_sign` |
