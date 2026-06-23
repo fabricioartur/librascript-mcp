@@ -1,10 +1,94 @@
 # LIBRAScript MCP
 
+<p align="center">
+  <img src="docs/images/slide-01-titulo.png" alt="LIBRAScript MCP — Conectando IAs ao VLibras oficial" width="720">
+</p>
+
 Torne qualquer IA capaz de **produzir conteúdo em LIBRAS** usando as APIs oficiais do [VLibras](https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/vlibras) (Governo Digital).
 
 Funciona com **Cursor, Grok, Claude Desktop, Claude Code** e qualquer ferramenta que suporte o [protocolo MCP](https://modelcontextprotocol.io).
 
-**Apresentação visual (5 slides):** [PDF](docs/deck/librascript-mcp-deck.pdf) · [PowerPoint](docs/deck/librascript-mcp-deck.pptx) · [Canva (editar)](https://www.canva.com/d/G3JXjOu8qwcWOmv)
+---
+
+## Como funciona
+
+```mermaid
+flowchart LR
+    A["🤖 IA com cliente MCP<br/>Cursor · Grok · Claude"]
+    B["⚙️ LIBRAScript MCP<br/>9 ferramentas + 3 prompts"]
+    C["🇧🇷 APIs VLibras<br/>Governo Digital · R$ 0"]
+    D["📝 Glossa + Validação<br/>+ Roteiro"]
+
+    A -->|"Traduza para LIBRAS"| B
+    B -->|"translate + bundles"| C
+    C --> D
+    D --> A
+```
+
+<p align="center">
+  <img src="docs/images/slide-03-arquitetura.png" alt="Diagrama: IA → MCP → VLibras → Glossa" width="720">
+</p>
+
+| Etapa | O que acontece |
+|-------|----------------|
+| 1 | Você pede à IA em português natural |
+| 2 | A IA chama o LIBRAScript MCP |
+| 3 | O MCP consulta `traducao2.vlibras.gov.br` e `dicionario2.vlibras.gov.br` |
+| 4 | Retorna glossa validada e roteiro com tempos estimados |
+
+---
+
+## O problema que resolve
+
+<p align="center">
+  <img src="docs/images/slide-02-problema.png" alt="Mais de 2 milhões de brasileiros usam LIBRAS — conteúdo digital é produzido quase só em português escrito" width="720">
+</p>
+
+O VLibras traduz páginas para quem **consome** conteúdo (widget Ícaro). O LIBRAScript preenche a lacuna de quem **cria** conteúdo com IA — desenvolvedores, educadores, ONGs e criadores digitais.
+
+---
+
+## Ferramentas em ação
+
+```mermaid
+flowchart TD
+    T["Texto em português"]
+    T --> A["audit_content<br/>Melhora o texto"]
+    A --> G["text_to_gloss<br/>Traduz para glossa"]
+    G --> V["validate_gloss<br/>Confere no dicionário"]
+    V --> S["gloss_to_script<br/>Gera roteiro"]
+    T -.->|"atalho"| TV["translate_and_validate<br/>Faz tudo de uma vez"]
+    TV --> S
+```
+
+<p align="center">
+  <img src="docs/images/slide-04-ferramentas.png" alt="9 ferramentas MCP e demo em 30 segundos" width="720">
+</p>
+
+**Exemplo real:**
+
+| | |
+|---|---|
+| Entrada | `Bem-vindo ao nosso curso de programação` |
+| Glossa | `BEM_VINDO NOSSO CURSO&ESTUDAR PROGRAMAÇÃO` |
+| Validação | 100% dos sinais no dicionário oficial |
+
+---
+
+## Apresentação visual completa
+
+Deck de 5 slides para compartilhar ou apresentar:
+
+<p align="center">
+  <img src="docs/images/slide-05-impacto.png" alt="Impacto, links e aviso sobre intérprete humano" width="720">
+</p>
+
+| Formato | Link |
+|---------|------|
+| PDF | [librascript-mcp-deck.pdf](docs/deck/librascript-mcp-deck.pdf) |
+| PowerPoint | [librascript-mcp-deck.pptx](docs/deck/librascript-mcp-deck.pptx) |
+| Editar no Canva | [Abrir no Canva](https://www.canva.com/d/G3JXjOu8qwcWOmv) |
+| Todas as imagens | [docs/images/](docs/images/) |
 
 ---
 
@@ -78,7 +162,7 @@ Você não precisa saber os nomes das ferramentas. Basta escrever em português:
 
 ---
 
-## Ferramentas disponíveis
+## Referência das ferramentas
 
 | Ferramenta | Para que serve |
 |------------|----------------|
