@@ -16,7 +16,7 @@
 
 **LIBRAScript MCP** — servidor open source v0.3.0
 
-- Funciona com Cursor, Grok, Claude e qualquer cliente MCP
+- Funciona com Cursor, Grok, Claude, OpenAI Codex, Google Antigravity e qualquer cliente MCP
 - APIs gratuitas do Governo Digital (VLibras)
 - **R$ 0** — sem API key
 
@@ -75,6 +75,8 @@ npm run doctor
   }
 }
 ```
+
+**Clientes testados:** Cursor · Grok Build · Claude Desktop · Claude Code · OpenAI Codex · Google Antigravity
 
 ---
 

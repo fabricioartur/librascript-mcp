@@ -2,7 +2,7 @@
 
 ## O que é
 
-O **LIBRAScript MCP** é um servidor open source do protocolo MCP (Model Context Protocol) que permite que **qualquer inteligência artificial** — Cursor, Grok, Claude Desktop, Claude Code e outros clientes compatíveis — produza conteúdo em **LIBRAS** usando as **APIs gratuitas e oficiais do VLibras** (Governo Digital do Brasil).
+O **LIBRAScript MCP** é um servidor open source do protocolo MCP (Model Context Protocol) que permite que **qualquer inteligência artificial** — Cursor, Grok, Claude Desktop, Claude Code, OpenAI Codex, Google Antigravity e outros clientes compatíveis — produza conteúdo em **LIBRAS** usando as **APIs gratuitas e oficiais do VLibras** (Governo Digital do Brasil).
 
 **Repositório:** https://github.com/fabricioartur/librascript-mcp
 
@@ -92,7 +92,15 @@ npm run doctor
 }
 ```
 
-Compatível com: **Cursor**, **Grok Build**, **Claude Desktop**, **Claude Code**.
+Compatível com: **Cursor**, **Grok Build**, **Claude Desktop**, **Claude Code**, **OpenAI Codex**, **Google Antigravity**.
+
+| Cliente | Onde configurar |
+|---------|-----------------|
+| Cursor | Configurações → MCP |
+| Grok Build | Config MCP do projeto |
+| Claude Desktop | `~/.config/claude/claude_desktop_config.json` |
+| OpenAI Codex | `~/.codex/config.toml` ou `codex mcp add` |
+| Google Antigravity | MCP settings — [docs](https://antigravity.google/docs/mcp) |
 
 ---
 
