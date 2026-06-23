@@ -4,6 +4,8 @@ Torne qualquer IA capaz de **produzir conteúdo em LIBRAS** usando as APIs ofici
 
 Funciona com **Cursor, Grok, Claude Desktop, Claude Code** e qualquer ferramenta que suporte o [protocolo MCP](https://modelcontextprotocol.io).
 
+**Apresentação visual (5 slides):** [PDF](docs/deck/librascript-mcp-deck.pdf) · [PowerPoint](docs/deck/librascript-mcp-deck.pptx) · [Canva (editar)](https://www.canva.com/d/G3JXjOu8qwcWOmv)
+
 ---
 
 ## Comece em 3 minutos
